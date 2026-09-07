@@ -3,7 +3,7 @@
 One-page, contact-first B2B site for Heritage Natural Stone.
 Static HTML/CSS/JS — no build step, published directly via GitHub Pages.
 
-**Live:** https://batudemir14.github.io/heritage-natural-stone/
+**Live:** https://heritagenaturalstone.com/ (previous address https://batudemir14.github.io/heritage-natural-stone/ redirects here)
 
 ## Structure
 
