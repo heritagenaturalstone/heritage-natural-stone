@@ -104,7 +104,7 @@ button { font: inherit; background: none; border: 0; cursor: pointer; color: inh
   min-height: 480px;
   background:
     linear-gradient(rgba(28, 25, 22, 0.38), rgba(28, 25, 22, 0.3)),
-    url("../assets/photos/hero-travertine.jpg") center/cover no-repeat;
+    url("../assets/photos/hero-travertine.webp") center/cover no-repeat;
 }
 
 .hero__stage {

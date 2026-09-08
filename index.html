@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/photos/hero-travertine.webp" fetchpriority="high">
   <link rel="stylesheet" href="css/style.css">
   <script>
     /* gate the motion layer before first paint (removed again if GSAP fails) */
@@ -132,8 +133,8 @@
       <div class="team__grid">
         <div class="member">
           <figure class="member__media" data-photos>
-            <img class="member__img member__img--main" src="assets/team/kerem-1.jpg" alt="Kerem Gemalmazoğlu" loading="lazy">
-            <img class="member__img member__img--alt" src="assets/team/kerem-2.jpg" alt="Kerem Gemalmazoğlu playing water polo for the Turkish national team" loading="lazy">
+            <img class="member__img member__img--main" decoding="async" src="assets/team/kerem-1.webp" alt="Kerem Gemalmazoğlu" loading="lazy">
+            <img class="member__img member__img--alt" decoding="async" src="assets/team/kerem-2.webp" alt="Kerem Gemalmazoğlu playing water polo for the Turkish national team" loading="lazy">
             <button class="member__next" type="button" aria-label="Show next photo"><span aria-hidden="true">&rsaquo;</span></button>
           </figure>
           <h3 class="member__name">Kerem Gemalmazoğlu</h3>
@@ -148,8 +149,8 @@
 
         <div class="member">
           <figure class="member__media" data-photos>
-            <img class="member__img member__img--main" src="assets/team/emre-1.jpg" alt="Emre Gürdenli" loading="lazy">
-            <img class="member__img member__img--alt" src="assets/team/emre-2.jpg" alt="Emre Gürdenli with a national team swimming medal" loading="lazy">
+            <img class="member__img member__img--main" decoding="async" src="assets/team/emre-1.webp" alt="Emre Gürdenli" loading="lazy">
+            <img class="member__img member__img--alt" decoding="async" src="assets/team/emre-2.webp" alt="Emre Gürdenli with a national team swimming medal" loading="lazy">
             <button class="member__next" type="button" aria-label="Show next photo"><span aria-hidden="true">&rsaquo;</span></button>
           </figure>
           <h3 class="member__name">Emre Gürdenli</h3>
@@ -165,8 +166,8 @@
 
         <div class="member">
           <figure class="member__media" data-photos>
-            <img class="member__img member__img--main" src="assets/team/umut-1.jpg" alt="Umut Yeşiltan" loading="lazy">
-            <img class="member__img member__img--alt" src="assets/team/umut-2.jpg" alt="Umut Yeşiltan inspecting a marble slab in the warehouse" loading="lazy">
+            <img class="member__img member__img--main" decoding="async" src="assets/team/umut-1.webp" alt="Umut Yeşiltan" loading="lazy">
+            <img class="member__img member__img--alt" decoding="async" src="assets/team/umut-2.webp" alt="Umut Yeşiltan inspecting a marble slab in the warehouse" loading="lazy">
             <button class="member__next" type="button" aria-label="Show next photo"><span aria-hidden="true">&rsaquo;</span></button>
           </figure>
           <h3 class="member__name">Umut Yeşiltan</h3>
@@ -192,16 +193,16 @@
           <h2 class="section__title">Traditional stone expertise,<br>modern sourcing intelligence.</h2>
         </div>
         <div class="wwd__video">
-          <video id="introReel" src="assets/video/heritage-intro-reel.mp4"
-                 poster="assets/photos/reel-poster.jpg"
-                 autoplay muted loop playsinline preload="metadata"
+          <video id="introReel" data-src="assets/video/heritage-intro-reel.mp4"
+                 poster="assets/photos/reel-poster.webp"
+                 muted loop playsinline preload="none"
                  aria-label="Heritage Natural Stone intro reel"></video>
         </div>
       </div>
 
       <div class="wwd__block wwd__block--reverse">
         <div class="wwd__media" role="img" aria-label="Choosing stone samples over architectural drawings"
-             style="background-image:url('assets/photos/stone-selection.jpg')"></div>
+             style="background-image:url('assets/photos/stone-selection.webp')"></div>
         <div class="wwd__content">
           <p class="section__text">
             Looking for something specific? We find you exactly the stone you need -
@@ -220,7 +221,7 @@
     <section class="features" id="features" data-header-theme="dark" aria-label="What we offer">
       <div class="features__grid">
         <article class="fcell" id="quarry-access" tabindex="0">
-          <div class="fcell__bg" style="background-image:url('assets/photos/feature-quarry.jpg')" aria-hidden="true"></div>
+          <div class="fcell__bg" data-bg="assets/photos/feature-quarry.webp" aria-hidden="true"></div>
           <div class="fcell__card">
             <h3 class="fcell__title">Direct Quarry Access</h3>
             <p class="fcell__text">
@@ -231,7 +232,7 @@
           </div>
         </article>
         <article class="fcell" id="real-time-stock" tabindex="0">
-          <div class="fcell__bg" style="background-image:url('assets/photos/feature-stock.jpg')" aria-hidden="true"></div>
+          <div class="fcell__bg" data-bg="assets/photos/feature-stock.webp" aria-hidden="true"></div>
           <div class="fcell__card">
             <h3 class="fcell__title">Real-Time Stock</h3>
             <p class="fcell__text">
@@ -241,7 +242,7 @@
           </div>
         </article>
         <article class="fcell" id="ai-sourcing" tabindex="0">
-          <div class="fcell__bg" style="background-image:url('assets/photos/feature-ai.jpg')" aria-hidden="true"></div>
+          <div class="fcell__bg" data-bg="assets/photos/feature-ai.webp" aria-hidden="true"></div>
           <div class="fcell__card">
             <h3 class="fcell__title">AI-Assisted Sourcing</h3>
             <p class="fcell__text">
@@ -251,7 +252,7 @@
           </div>
         </article>
         <article class="fcell" id="photos-in-hours" tabindex="0">
-          <div class="fcell__bg" style="background-image:url('assets/photos/feature-photos.jpg')" aria-hidden="true"></div>
+          <div class="fcell__bg" data-bg="assets/photos/feature-photos.webp" aria-hidden="true"></div>
           <div class="fcell__card">
             <h3 class="fcell__title">Photos in Hours</h3>
             <p class="fcell__text">

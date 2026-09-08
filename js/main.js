@@ -240,14 +240,65 @@
     });
   });
 
-  /* --- Intro reel: play only while on screen --- */
+  /* --- Lazy backgrounds: feature photos load as the grid approaches --- */
+  var lazyBgs = document.querySelectorAll("[data-bg]");
+  function loadBg(el) {
+    el.style.backgroundImage = "url('" + el.getAttribute("data-bg") + "')";
+    el.removeAttribute("data-bg");
+  }
+  if ("IntersectionObserver" in window) {
+    var bgObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { loadBg(entry.target); bgObserver.unobserve(entry.target); }
+      });
+    }, { rootMargin: "500px 0px" });
+    lazyBgs.forEach(function (el) { bgObserver.observe(el); });
+  } else {
+    lazyBgs.forEach(loadBg);
+  }
+
+  /* --- Intro reel: fetch only when near, play only while on screen --- */
   var reel = document.getElementById("introReel");
+  function armReel() {
+    if (!reel || reel.getAttribute("src")) return;
+    reel.setAttribute("src", reel.getAttribute("data-src"));
+    reel.preload = "auto";
+    reel.load();
+  }
+  if (reel) {
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { armReel(); obs.disconnect(); }
+        });
+      }, { rootMargin: "700px 0px" }).observe(reel);
+    } else {
+      armReel();
+    }
+  }
+
+  /* belt and braces: a plain scroll check also feeds the lazy loaders
+     (covers browsers/tabs where observers are throttled) */
+  function lazyCheck() {
+    var limit = window.innerHeight + 700;
+    document.querySelectorAll("[data-bg]").forEach(function (el) {
+      if (el.getBoundingClientRect().top < limit) loadBg(el);
+    });
+    if (reel && !reel.getAttribute("src") &&
+        reel.getBoundingClientRect().top < limit) {
+      armReel();
+    }
+  }
+  window.addEventListener("scroll", lazyCheck, { passive: true });
+  lazyCheck();
+
   if (reel) {
     if ("IntersectionObserver" in window) {
       new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
+              armReel();
               var p = reel.play();
               if (p && p.catch) p.catch(function () {});
             } else {
