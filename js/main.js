@@ -243,7 +243,9 @@
   /* --- Lazy backgrounds: feature photos load as the grid approaches --- */
   var lazyBgs = document.querySelectorAll("[data-bg]");
   function loadBg(el) {
-    el.style.backgroundImage = "url('" + el.getAttribute("data-bg") + "')";
+    var src = el.getAttribute("data-bg");
+    if (!src) return; /* already loaded by the other path */
+    el.style.backgroundImage = "url('" + src + "')";
     el.removeAttribute("data-bg");
   }
   if ("IntersectionObserver" in window) {
