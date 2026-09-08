@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found — Heritage Natural Stone</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/assets/logo-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --charcoal: #2a2825; --alabaster: #f8f3ea; --gold: #cbae82; }
+    * { box-sizing: border-box; margin: 0; }
+    html, body { height: 100%; }
+    body {
+      display: grid; place-items: center; padding: 24px;
+      background: var(--charcoal); color: var(--alabaster);
+      font-family: "Montserrat", system-ui, sans-serif; font-weight: 300; text-align: center;
+    }
+    .nf { max-width: 560px; }
+    .nf__mark { width: 34px; height: auto; margin: 0 auto 28px; display: block; opacity: .9; }
+    .nf__code { font-family: "Cinzel", Georgia, serif; font-size: clamp(56px, 12vw, 104px); line-height: 1; letter-spacing: .06em; color: var(--gold); }
+    .nf__rule { width: 48px; height: 1px; background: var(--gold); margin: 22px auto; opacity: .7; }
+    .nf__title { font-family: "Cinzel", Georgia, serif; font-weight: 400; font-size: clamp(18px, 2.6vw, 24px); letter-spacing: .08em; text-transform: uppercase; }
+    .nf__text { margin-top: 14px; font-size: 15px; line-height: 1.7; opacity: .78; }
+    .nf__btn {
+      display: inline-block; margin-top: 32px; padding: 14px 30px;
+      border: 1px solid var(--alabaster); color: var(--alabaster); text-decoration: none;
+      font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      transition: background .25s ease, color .25s ease;
+    }
+    .nf__btn:hover, .nf__btn:focus-visible { background: var(--alabaster); color: var(--charcoal); }
+    .nf__contact { margin-top: 22px; font-size: 13px; opacity: .6; }
+    .nf__contact a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }
+  </style>
+</head>
+<body>
+  <main class="nf">
+    <img class="nf__mark" src="/assets/logo-mark.svg" alt="" width="34" height="46">
+    <p class="nf__code" aria-label="Error 404">404</p>
+    <div class="nf__rule" aria-hidden="true"></div>
+    <h1 class="nf__title">This page could not be found</h1>
+    <p class="nf__text">The stone you are looking for is not on this shelf. Head back to the homepage or tell us what you need directly.</p>
+    <a class="nf__btn" href="/">Back to homepage</a>
+    <p class="nf__contact"><a href="mailto:info@heritagenaturalstone.com">info@heritagenaturalstone.com</a></p>
+  </main>
+</body>
+</html>
