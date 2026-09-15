@@ -450,10 +450,12 @@
       autoAlpha: 0, y: 44, duration: 0.9, ease: "power3.out",
       scrollTrigger: { trigger: "#what-we-do", start: "top 72%" }
     });
-    gsap.fromTo(".wwd__video",
-      { clipPath: "inset(100% 0% 0% 0%)" },
+    /* video: soft fade + settle (reveal on the inner element so it never
+       fights the container's parallax drift) */
+    gsap.fromTo(".wwd__video video",
+      { autoAlpha: 0, scale: 1.04 },
       {
-        clipPath: "inset(0% 0% 0% 0%)", duration: 1.1, ease: "power3.inOut",
+        autoAlpha: 1, scale: 1, duration: 1.1, ease: "power3.out",
         scrollTrigger: { trigger: ".wwd__video", start: "top 82%" }
       });
     gsap.to(".wwd__video", {
