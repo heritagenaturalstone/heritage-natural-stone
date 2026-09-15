@@ -100,8 +100,8 @@ button { font: inherit; background: none; border: 0; cursor: pointer; color: inh
 
 .hero {
   position: relative;
-  height: calc(100svh - var(--bar-h));
-  min-height: 480px;
+  height: 100svh;
+  min-height: 520px;
   background:
     linear-gradient(rgba(28, 25, 22, 0.38), rgba(28, 25, 22, 0.3)),
     url("../assets/photos/hero-travertine.webp") center/cover no-repeat;
@@ -328,43 +328,59 @@ body.in-contact .contact-rail {
   pointer-events: none;
 }
 
+.contact-rail { align-items: flex-end; }
+
 .contact-rail__btn {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0;
+  justify-content: center;
   width: 54px;
   height: 54px;
-  padding: 0 15px;
+  flex: 0 0 auto;
   border-radius: 10px;
   background: var(--alabaster);
   color: var(--charcoal);
   border: 1px solid rgba(42, 40, 37, 0.08);
   box-shadow: 0 8px 26px rgba(23, 20, 17, 0.28);
-  overflow: hidden;
-  white-space: nowrap;
-  transition: width 0.35s var(--ease), gap 0.35s var(--ease);
+  transition: transform 0.25s var(--ease);
 }
 
+.contact-rail__btn:active { transform: scale(0.97); }
 .contact-rail__btn svg { width: 24px; height: 24px; flex: 0 0 auto; }
 .contact-rail__btn--wa svg { color: #25d366; }
 
+/* label floats beside the icon (absolute: never pushes the other button) */
 .contact-rail__label {
-  font-size: 0.85rem;
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translate(8px, -50%);
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.04em;
+  white-space: nowrap;
+  background: var(--charcoal-deep);
+  color: var(--alabaster);
+  box-shadow: 0 6px 20px rgba(23, 20, 17, 0.25);
   opacity: 0;
-  transition: opacity 0.25s var(--ease) 0.08s;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
+.contact-rail__btn--wa .contact-rail__label { background: #25d366; color: #fff; }
+
 @media (hover: hover) {
-  .contact-rail__btn:hover,
-  .contact-rail__btn:focus-visible {
-    width: 178px;
-    gap: 10px;
-  }
   .contact-rail__btn:hover .contact-rail__label,
-  .contact-rail__btn:focus-visible .contact-rail__label { opacity: 1; }
+  .contact-rail__btn:focus-visible .contact-rail__label {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
 }
+/* touch devices: icons only (no hover state exists) */
+@media (hover: none) { .contact-rail__label { display: none; } }
 
 /* ============================================================
    2. Who We Are
@@ -525,10 +541,6 @@ body.in-contact .contact-rail {
   align-items: center;
 }
 
-.wwd__block--reverse {
-  grid-template-columns: minmax(0, 44%) minmax(0, 1fr);
-}
-
 .wwd__video {
   aspect-ratio: 9 / 16;
   border-radius: 12px;
@@ -662,11 +674,11 @@ body.in-contact .contact-rail {
 }
 
 .values__text {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", "Cinzel", Georgia, serif;
   font-weight: 500;
-  font-size: clamp(1.1rem, 0.9rem + 1vw, 1.8rem);
-  line-height: 1.8;
-  max-width: 42ch;
+  font-size: clamp(1.3rem, 1rem + 1.3vw, 2.2rem);
+  line-height: 1.55;
+  max-width: 44ch;
   color: var(--charcoal);
 }
 
@@ -830,7 +842,10 @@ body.in-contact .contact-rail {
 
 .footer__nav { display: flex; flex-wrap: wrap; gap: 1.4rem; }
 
+.footer__social { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+
 .footer__nav a,
+.footer__social a,
 .footer__mailto {
   font-size: 0.85rem;
   letter-spacing: 0.05em;
@@ -838,6 +853,7 @@ body.in-contact .contact-rail {
 }
 
 .footer__nav a:hover,
+.footer__social a:hover,
 .footer__mailto:hover { color: var(--gold); }
 
 .footer__legal { font-size: 0.8rem; }
@@ -899,13 +915,11 @@ body.in-contact .contact-rail {
   .team__grid { grid-template-columns: 1fr; max-width: 440px; }
   .team__grid .member:nth-child(n) { --reveal-delay: 0s; }
 
-  .wwd__block,
-  .wwd__block--reverse { grid-template-columns: 1fr; }
+  .wwd__block { grid-template-columns: 1fr; }
   .wwd__video {
     justify-self: center;
     width: min(320px, 80vw);
   }
-  .wwd__block--reverse .wwd__media { order: 2; }
 
   .features__grid { grid-template-columns: 1fr; }
   .fcell { min-height: 380px; }

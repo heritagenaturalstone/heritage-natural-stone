@@ -462,14 +462,6 @@
         trigger: ".wwd__block", start: "top bottom", end: "bottom top", scrub: true
       }
     });
-    gsap.from(".wwd__block--reverse .wwd__media", {
-      autoAlpha: 0, y: 50, duration: 0.9, ease: "power3.out",
-      scrollTrigger: { trigger: ".wwd__block--reverse", start: "top 78%" }
-    });
-    gsap.from(".wwd__block--reverse .section__text", {
-      autoAlpha: 0, y: 34, duration: 0.9, ease: "power3.out", delay: 0.12,
-      scrollTrigger: { trigger: ".wwd__block--reverse", start: "top 78%" }
-    });
 
     /* --- 4. Feature grid: cards rise cell by cell --- */
     gsap.utils.toArray(".fcell").forEach(function (cell, i) {
